@@ -3,7 +3,6 @@ $(document).ready(function(){
     $('.mm_btn').on('click',function () {
         $('.main_nav').toggleClass('open');
         $('html').toggleClass('page-noscroll');
-
         return false;
     });
 
@@ -16,6 +15,7 @@ $(document).ready(function(){
             e.stopPropagation();
         });
     }
+
 
     if($('.main_slider > div').length >1){
         $('.main_slider').slick({
@@ -92,6 +92,69 @@ $(document).ready(function(){
     }
 
 
+    $('.range_values').each(function(){
+        var range=$(this).find('.range');
+        var rub_left=$(this).find('.rub_left');
+        var rub_right=$(this).find('.rub_right');
+        var tasks_status1=$(this).find('.tasks_status1');
+        var tasks_status2=$(this).find('.tasks_status2');
+        $(range).slider({
+            range: true,
+            min: 0,
+            max: 350,
+            values: [0, 150],
+            step: 1,
+            slide: function(event, ui) {
+                $(rub_left).text(ui.values[0] + ' мм.');
+                $(rub_right).text(ui.values[1] + ' мм.');
+                $(tasks_status1).val( ui.values[0] );
+                $(tasks_status2).val( ui.values[1] );
+            }
+        });
+        $(rub_left).text($(range).slider("values", 0) + ' мм.');
+        $(rub_right).text($(range).slider("values", 1) + ' мм.');
+    });
+    $(document).on("change","input[class=tasks_status1]", function() {
+        $(this).closest('.range_values').find('.range').slider('values',0,$(this).val());
+        $(this).closest('.range_values').find('.rub_left').text($('.range').slider("values", 0) + ' мм.');
+    });
+    $(document).on("change","input[class=tasks_status2]", function() {
+        $(this).closest('.range_values').find('.range').slider('values',1,$(this).val());
+        $(this).closest('.range_values').find('.rub_right').text($('.range').slider("values", 1) + ' мм.');
+    });
+
+
+
+
+    $('.filter_title').click(function(){
+        $(this).parent().toggleClass('act');
+        $(this).next().slideToggle();
+    });
+
+
+
+    $('.mm_filter_btn').click(function(){
+        $('.filter_block').addClass('open');
+        $('html').addClass('filter_active');
+        $('.mf_close').on('click',function () {
+            $('.filter_block').removeClass('open');
+            $('html').removeClass('filter_active');
+        });
+        return false;
+    });
+
+
+
+    if($(window).innerWidth() < 1200){
+        $(document).on('click', function(e) {
+            if (!$(e.target).closest(".filter_block.open").length) {
+                $(".filter_block.open").removeClass('open');
+                $("html").removeClass('filter_active');
+            }
+            e.stopPropagation();
+        });
+    }
+
 
 
     /**********************************/
@@ -99,28 +162,7 @@ $(document).ready(function(){
 
 
 
-    $("#price_range").slider({
-        range: true,
-        min: 0,
-        max: 350,
-        values: [0, 150],
-        step: 1,
-        slide: function(event, ui) {
-            $("#rub-left").text(ui.values[0] + ' руб.');
-            $("#rub-right").text(ui.values[1] + ' руб.');
-            /*
-            if (ui.handleIndex === 0) {
-                // потянули левый ползунок - переместим левый span
-                $("#rub-left").css('margin-left', ui.handle.style.left);
-            } else {
-                // потянули правый ползунок - переместим правый span
-                $("#rub-right").css('margin-left', ui.handle.style.left);
-            }*/
-        }
-    });
 
-    $("#rub-left").text($("#price_range").slider("values", 0) + ' руб.');
-    $("#rub-right").text($("#price_range").slider("values", 1) + ' руб.');
 
 
 
