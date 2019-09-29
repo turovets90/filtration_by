@@ -199,7 +199,7 @@ $(document).ready(function(){
 
 
 
-
+/*
 
 
     $('#show_category').click(function(){
@@ -265,7 +265,7 @@ $(document).ready(function(){
 
 
 
-
+*/
 
 
 
