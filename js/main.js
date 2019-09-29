@@ -156,6 +156,42 @@ $(document).ready(function(){
     }
 
 
+    if($(".product_slider > div").length >4){
+        $('.product_slider').slick({
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            arrows: true,
+            //infinite:false,
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 3,
+                    }
+                },
+                {
+                    breakpoint: 991,
+                    settings: {
+                        slidesToShow: 2,
+                    }
+                },
+                {
+                    breakpoint: 575,
+                    settings: {
+                        slidesToShow: 1,
+                        arrows: false,
+                        dots:true
+                    }
+                }
+            ]
+        });
+    }
+
+
+
+
+
+
 
     /**********************************/
 
