@@ -189,6 +189,26 @@ $(document).ready(function(){
 
 
 
+    $('.models_table .models_body .item').each(function(){
+        var button_show_more=$(this).find('.button_show_more');
+        var m_body=$(this).find('.m_body');
+        var item=$(this);
+
+        $(button_show_more).click(function(){
+            if($(m_body).is(':visible')){
+                  $(m_body).slideUp();
+                  $(button_show_more).text('развернуть');
+                  $(item).removeClass('act');
+            }else{
+                $(m_body).slideDown();
+                $(button_show_more).text('свернуть');
+                $(item).addClass('act');
+            }
+        });
+    });
+
+
+
 
 
 
