@@ -3682,3 +3682,150 @@ body {
   }
 
 }
+
+
+
+.brands_list{
+  border-top: 1px solid #EEEEEE;
+  border-left: 1px solid #EEEEEE;
+  margin-right: 0;
+  margin-left: 0;
+  .brands_item{
+    border-right: 1px solid #EEEEEE;
+    border-bottom: 1px solid #EEEEEE;
+    padding: 0;
+
+    .brand_link{
+      height: 220px;
+      width: 100%;
+      display: inline-block;
+      position: relative;
+      @media (max-width:1200px){
+        height: 160px;
+      }
+      @media (max-width:575px){
+        height: 136px;
+      }
+      &:hover, &:focus{
+        img{
+          -webkit-filter: grayscale(0);
+          -moz-filter: grayscale(0);
+          -ms-filter: grayscale(0);
+          -o-filter: grayscale(0);
+          filter: grayscale(0);
+        }
+      }
+      img{
+        position: absolute;
+        .m_a();
+        max-width: 99%;
+        max-height: 99%;
+        -webkit-filter: grayscale(100%);
+        -moz-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+        -o-filter: grayscale(100%);
+        filter: grayscale(100%);
+        .transition(@transition_default);
+      }
+    }
+  }
+}
+
+
+.brands_alphabetically_list{
+  .flex();
+  .wrap();
+  margin-bottom: 30px;
+  li{
+    padding-left: 0 !important;
+    margin-right: 1px;
+    margin-bottom: 15px;
+    &:before{
+      display: none;
+    }
+    &.first{
+      a{
+        color: #183762;
+        width: 119px;
+        min-width: 119px;
+        height: 40px;
+        background: #F7F7F7;
+        .flex();
+        .ai-center();
+        .j-center();
+        border:0;
+        text-transform: initial;
+        &:hover, &:focus{
+          text-decoration: none;    color: #183762;   background: #F7F7F7;
+        }
+      }
+    }
+    &.active{
+      a{
+        color: #FFFFFF;
+        background: #0F65BA; border:1px solid #0F65BA;
+      }
+    }
+    a{
+      width: 40px;
+      height: 40px;
+      color: #183762;
+      font-size: 14px;
+      .flex();
+      .ai-center();
+      .j-center();
+      border:1px solid #fff;
+      text-transform: uppercase;
+      &:hover, &:focus{
+        text-decoration: none;
+        border:1px solid #0F65BA;
+      }
+    }
+  }
+}
+
+hr{
+  border: 1px solid #EEEEEE;
+}
+
+
+.brands_menu_block{
+
+  .h3{
+    font-size: 24px;
+    color:  #122846;
+    font-family: @HeliosCondBlackC;
+  }
+
+  .row{
+    > div{
+      @media (max-width:575px){
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  hr{
+    margin-bottom: 30px;
+  }
+
+  .brands_menu{
+    width: 100%;
+    li{
+      padding-left: 0 !important;
+      margin-bottom: 15px;
+      &:before{
+        display: none;
+      }
+      a{
+        color: #BEBEBE;font-size: 16px;
+        text-decoration: none;
+        &:hover, &:focus{
+          color:  #122846;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+}
