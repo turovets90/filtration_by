@@ -1163,16 +1163,18 @@ header{
 
 
   .slick-dots{
+
     @media (min-width:576px){
-      bottom: 0;
-      right: 170px;
-      left: 0;
-      margin: auto;
       max-width: 1200px;
       z-index: 2;
       .flex();
       padding-left: 15px;
       width: auto;
+      margin: auto;
+      bottom: 0;
+      left: 0;
+      right: 350px;
+      position: absolute;
       li{
         width: 67px;
         height: 67px;
@@ -1180,18 +1182,26 @@ header{
         .flex();
         .ai-center();
         .j-center();
-        &.slick-active{
+        .transition(@transition_default);
+        &.slick-active, &:hover{
           background: #0F65BA;
           span{
             color: #fff;
           }
         }
-        span{
+        span{ .transition(@transition_default);
           color: rgba(255, 255, 255, 0.5);font-size: 18px;
           font-family: @HeliosCondBlackC;
         }
       }
     }
+    @media (min-width:1200px){
+      padding-left: 5%;
+    }
+    @media (min-width:1400px){
+      padding-left: 10%;
+    }
+
 
     @media (max-width:575px){
       bottom: 38px;
@@ -1315,6 +1325,9 @@ header{
       height: 67px;
       position: relative;
       border:0;
+      &:hover, &:focus{
+        background: rgba(18, 40, 70, 0.8);
+      }
       &:before{
         .b_a();
         .m_a();
@@ -1356,6 +1369,7 @@ header{
   &:hover, &:focus{
     text-decoration: none;
     color: #FFFFFF;
+    background: rgba(15, 101, 186, 0.80);
   }
 }
 
@@ -1909,17 +1923,27 @@ blockquote{
           height: 100%;
           top: 0;
           left: 0;
+          .transition(@transition_default);
         }
         &.filter_selection{
           &:before{
             background: rgba(24, 55, 98, 0.7);
+          }
+          &:hover, &:focus{
+            &:before{
+              background: rgba(24, 55, 98, 0.9);
+            }
           }
         }
         &.selection_equipment{
           &:before{
             background: rgba(15, 101, 186, 0.7);
           }
-
+          &:hover, &:focus{
+            &:before{
+              background: rgba(15, 101, 186, 0.9);
+            }
+          }
         }
         &:hover, &:focus{
           text-decoration: none;
@@ -2362,6 +2386,9 @@ footer{
             background: none;
             border: 1px solid #EEEEEE;
             color: #122846;
+            &:hover, &:focus{
+              border: 1px solid #0F65BA;color: #0F65BA;
+            }
           }
         }
 
@@ -2500,6 +2527,10 @@ footer{
     margin-bottom: 10px;
     li{
       margin-bottom: 7px;
+      padding-left: 0;
+      &:before{
+        display: none;
+      }
       .checkbox{
         position: relative;
         input{
@@ -4309,5 +4340,12 @@ hr{
   }
   &:last-child{
     padding-bottom: 0;
+  }
+}
+
+
+.home{
+  .delivery_block{
+    border:0;
   }
 }
