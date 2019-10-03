@@ -1680,6 +1680,15 @@ blockquote{
       height: 270px;
     }
 
+    &:hover, &:focus{
+        > div{.transform(translateY(-10px));}
+    }
+
+
+    > div{
+      .transition(@transition_default);
+    }
+
     picture{
       display: inline-block;
       margin-bottom: 27px;
@@ -2192,14 +2201,14 @@ footer{
       min-height: 325px;
     }
     .product_content{
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      background: #fff;
-      z-index: 9;
       @media (min-width:576px){
         height: 381px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: #fff;
+        z-index: 9;
       }
 
       @media (max-width:575px){
@@ -2265,7 +2274,9 @@ footer{
         }
 
         .hidden_content{
-          display: none;
+          @media (min-width:576px){
+            display: none;
+          }
         }
 
       }
@@ -2707,6 +2718,9 @@ h2, .h2{
 
       &:hover, &:focus{
         text-decoration: none;
+        span{
+          color: #0F65BA;
+        }
       }
 
 
@@ -2732,6 +2746,7 @@ h2, .h2{
         display: inline-block;
         max-width: 200px;
         margin: auto;
+        .transition(@transition_default);
       }
     }
   }
@@ -3339,6 +3354,9 @@ body {
     background: none;
     color:  #0F65BA;
     text-transform: initial;
+    &:hover, &:focus{
+      border: 1px solid #0F65BA;
+    }
   }
   ul{
     margin-bottom: 40px;
@@ -3488,46 +3506,86 @@ body {
     padding-bottom: 10px;
   }
 
-  .models_header, .models_body .item{
-    .flex();
-    .ai-center();
-
-
+  .models_body .item{
+    .manufacturer{
+      padding: 20px 10px;
+      @media (max-width:575px){
+        padding: 15px 10px;
+      }
+    }
+    .model{
+      padding: 20px 10px;
+      @media (max-width:575px){
+        padding: 15px 10px;
+      }
+    }
+    .view{
+      padding: 20px 10px;
+      @media (max-width:575px){
+        padding: 15px 10px;
+      }
+    }
+    .year_issue{
+      padding: 20px 10px;
+      @media (max-width:575px){
+        padding: 15px 10px;
+      }
+    }
+    .engine_make{
+      padding: 20px 10px;
+      @media (max-width:575px){
+        padding: 15px 10px;
+      }
+    }
+    .engines_type{
+      padding: 20px 10px;
+      @media (max-width:575px){
+        padding: 15px 10px;
+      }
+    }
+  }
+  .models_header {
     > div{
       padding: 20px 10px;
       @media (max-width:575px){
         padding: 15px 10px;
       }
     }
+  }
+
+  .models_header, .models_body .item{
+    .flex();
+    .ai-center();
+
     .manufacturer{
       @media (min-width:1200px){
-        min-width: 167px;
+        width: 167px;
 
       }
     }
     .model{
       @media (min-width:1200px){
-        min-width: 105px;
+        width: 105px;
       }
     }
     .view{
       @media (min-width:1200px){
-        min-width: 255px;
+        width: 255px;
       }
     }
     .year_issue{
       @media (min-width:1200px){
-        min-width: 145px;
+        width: 145px;
       }
     }
     .engine_make{
       @media (min-width:1200px){
-        min-width: 178px;
+        width: 178px;
       }
     }
     .engines_type{
       @media (min-width:1200px){
-        min-width: 177px;
+        width: 177px;
       }
     }
     .more{
@@ -3549,6 +3607,12 @@ body {
   }
 
 
+
+  .m_body{
+    .d-flex{
+      .ai-center();
+    }
+  }
 
 
   .models_body .item{
@@ -4347,5 +4411,26 @@ hr{
 .home{
   .delivery_block{
     border:0;
+  }
+}
+
+
+
+.slick-dots{
+  li{
+    padding-left: 0;
+    &:before{
+      display: none;
+    }
+  }
+}
+
+
+
+.models_table .models_header{
+  > div{
+    @media (min-width:1200px){
+      //text-align: center;
+    }
   }
 }
