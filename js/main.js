@@ -252,6 +252,9 @@ $(document).ready(function(){
     });
 
 
+    $('.short_description .show_more').click(function(){
+        $('#specificationslink').tab('show');
+    })
 
 });
 
