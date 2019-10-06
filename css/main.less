@@ -1102,7 +1102,6 @@ header{
       a{
         font-size: 14px;
         color: #fff;
-        font-weight: bold;
         text-transform: uppercase;
         position: relative;
         text-align: center;
@@ -2629,16 +2628,24 @@ html.filter_active{
 
 
 .brand_page_logo{
-  height: 300px;
+  height: 200px;
   width: 100%;
   background: #FFFFFF;
   border: 1px solid #EEEEEE;
   position: relative;    margin-bottom: 50px;
+
+  @media (min-width:1200px){
+    width: 40%;
+    float: left;
+    margin: 0 15px 20px 0;
+  }
+
   @media (max-width:1200px){
-    height: 240px;
+    //height: 240px;
   }
   @media (max-width:575px){
-    height: 220px; margin-bottom: 30px;
+    //height: 220px;
+    margin-bottom: 30px;
   }
   img{
    position: absolute;
@@ -2648,6 +2655,10 @@ html.filter_active{
   }
 }
 
+
+.brand_desc.desc{
+  display: block;
+}
 
 h2, .h2{
   font-size: 32px;
@@ -2912,9 +2923,13 @@ body {
 
 .product_list, .category_list{
   //@media (max-width:1200px){
+
+  //}
+
+  @media (min-width:576px){
     margin-right: 0;
     margin-left: 0;
-  //}
+  }
 
 }
 
@@ -3233,7 +3248,7 @@ body {
   border-bottom: 2px solid #EEEEEE;
   margin-bottom: 50px;
 
-  @media (max-width:1200px){
+  @media (max-width:575px){
     margin-bottom: 40px;
     overflow-x: auto;
     overflow-y: hidden;
@@ -3259,8 +3274,8 @@ body {
         background: none;
         position: relative;
         color: #122846;
-        font-size: 14px;
-        font-weight: bold;
+        font-size: 13px;
+
         padding: 20px 30px;
         @media (max-width:1200px){
           width: 100%;
@@ -3268,6 +3283,9 @@ body {
         }
         @media (max-width:575px){
           padding: 20px 5px;
+        }
+        @media (min-width:576px){
+          font-size: 14px;text-transform: uppercase;
         }
         &.active{
           &:before{
@@ -4435,4 +4453,71 @@ hr{
       //text-align: center;
     }
   }
+}
+
+
+
+.table, table{
+  *{
+    border:0;
+  }
+  tr{
+    &:nth-child(odd){
+      background: #F7F7F7;
+    }
+
+    td, th{
+      border: 0;
+      color: #122846;
+      padding: 15px 30px;
+
+      @media (max-width:767px){
+        padding: 15px;
+      }
+    }
+  }
+
+  thead{
+    tr{
+      background: none !important;
+      th{
+        font-size: 14px;color: #BEBEBE;
+        font-weight: normal;
+      }
+    }
+  }
+
+}
+
+.table_block{
+  display: block;
+  overflow: auto;
+  .table, table{
+    min-width: 630px;
+  }
+}
+
+
+.pagination_block{
+  margin: 30px 0;
+  .flex();
+  .ai-center();
+  .j-center();
+  .pagination{
+    li{
+      padding-left: 0;
+      &:before{
+        display: none;
+      }
+    }
+  }
+}
+
+
+.page-link {
+  color: #0F65BA;
+}
+.page-item.active .page-link {
+  background-color: #0F65BA;
+  border-color: #0F65BA;
 }
