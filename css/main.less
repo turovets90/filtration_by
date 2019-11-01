@@ -561,11 +561,20 @@ img, video{
 }
 
 
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&display=swap&subset=cyrillic,cyrillic-ext');
+
+@Roboto: 'Roboto Condensed', sans-serif;
 body{
-  font-family: @HeliosC;
+  //font-family: @HeliosC;
+  font-family: @Roboto;
   font-size: 14px;
   line-height: 24px;
   color:#BEBEBE;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, .sub_title, .title{
+  font-family: @Roboto !important;
+  font-weight: 700;
 }
 header{
   position: relative;
